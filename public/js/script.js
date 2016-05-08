@@ -13,7 +13,9 @@ function loadPlayer() {
 			$('#ownedChamps').removeClass('hidden');
 			$("#recChampsContainer").html(displayChamps(data.recommended, true));
 			$('#recChamps').removeClass('hidden');
-
+			$('html,body').animate({
+			   scrollTop: $(".results").offset().top
+			});
 		});
 }
 
@@ -27,7 +29,7 @@ function displayChamps(json, showPoints) {
 	for(var i = 0; i < champs.length; i++) {
 		champHtml += "<li class=\"championPortrait\" title=\"" + champs[i].name + "\">"
 			+ "<img src=\"http://ddragon.leagueoflegends.com/cdn/6.9.1/img/champion/" + champs[i].image.full + "\"/>"
-			+ "	<span class=\"championGrade\"><span>"+champs[i].highest_grade + (showPoints?("<br>" + champs[i].champion_points):"")+"</span></span>"
+			+ "<span class=\"championGrade\"><span>"+champs[i].highest_grade + (showPoints?("<br>" + champs[i].champion_points):"")+"</span></span>"
 			+ "</li>";
 	}
 	return champHtml;

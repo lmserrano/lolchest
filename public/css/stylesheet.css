@@ -2,7 +2,6 @@ body {
     background-color: #000;
     color: rgb(240,230,200);
 	font-family: 'Dosis', sans-serif;
-	font-size: 120%;
 }
 
 .container {
@@ -29,6 +28,7 @@ body {
 	margin: 20px;
 	padding: 20px;
 	border-radius: 5px;
+	font-size: 120%;
 }
 
 .summonerInput input[type="text"]{
@@ -60,17 +60,62 @@ body {
 	width: 100%;
 	display: inline-block;
 	/*margin: 20px;*/
-	padding: 20px;
+	/*padding: 20px;*/
 	border-radius: 20px;
     text-align: center;
 
 }
 
-.portraitsContainer {
-	padding:auto;
+.championSplash {
+	position: relative;
+	padding: 0 50px;
 }
 
-.portraitsContainer li{
+.championSplash img{
+	max-width: 100%;
+	height: auto;
+	padding:1px;
+	border:1px solid #e8e9eb;
+}
+
+.championSplash div {
+   position: absolute; 
+   top: 50px; 
+   left: 100px; 
+   width: 100%; 
+   text-align: left;
+   color: #ffffff;
+   text-shadow: 2px 2px #000;
+}
+
+span.championName{
+   font-size: 400%;
+   display: inline-block;
+}
+
+#recChampsContainer {
+	width: 610px;
+	margin: auto;
+}
+
+div.portraitsContainer {
+	display: block;
+	padding: auto;
+}
+
+div.championProfile {
+	background-color: rgb(170,220,233);
+	color: rgb(9,26,70);
+	margin: 10px;
+	overflow:auto
+}
+
+div.championProfile img{
+	float: left;
+}
+
+
+/*.portraitsContainer li{
 	list-style: none;
 	padding: 0px;
 	float: left;
@@ -84,6 +129,10 @@ body {
 
 .portraitsContainer li:hover span.championGrade {
   opacity: 1;
+}
+*/
+.championProfile span{
+	float:left;
 }
 
 span.championGrade {
