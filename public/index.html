@@ -11,102 +11,103 @@
 
 </head>
 <body>
-	<div class="container">
-		<div class="logo">
-			<img src="rsc/banner.jpg" alt="Chest Finder">
-		</div>
-		<div class='summonerInput section'>
-			<!-- <h2>Find a champion to get your chest with</h2> -->
-			<form class="pure-form" onsubmit="loadPlayer(); return false;">
+<div class="container">
+	<div class="logo">
+		<img src="rsc/banner.jpg" alt="Chest Finder">
+	</div>
+	<div class='summonerInput section'>
+		<!-- <h2>Find a champion to get your chest with</h2> -->
+		<form class="pure-form" onsubmit="loadPlayer(); return false;">
 
-				<div>
-					<input type="text" id="summonerName" placeholder="Summoner Name" value="">
+			<div>
+				<input type="text" id="summonerName" placeholder="Summoner Name" value="">
 
-					<select id="roleSelect">
-						<option value="all">All Roles</option>
-						<option value="top">Top</option>
-						<option value="jungle">Jungle</option>
-						<option value="mid">Mid</option>
-						<option value="bot">Bot</option>
-						<option value="support">Support</option>
-					</select>
-					<select id="regionSelect">
-						<option value="NA">NA</option>
-						<option value="EUW">EUW</option>
-						<option value="EUNE">EUNE</option>
-						<option value="BR">BR</option>
-						<option value="TR">TR</option>
-						<option value="RU">RU</option>
-						<option value="LAN">LAN</option>
-						<option value="LAS">LAS</option>
-						<option value="OCE">OCE</option>
-						<option value="KR">KR</option>
-					</select>
-				</div>
-				<div class="button pure-button pure-button-primary" id="submitButton" onclick="loadPlayer()">
-					What champion should I get a chest with?
-				</div>
-			</form>
-			<div class="error hidden" id="formError">ERROR!</div>
-		</div>
-
-
-		<div class="results section">
-
-			<div class="hidden" id="recChamps">
-				<h1>You should try</h1>
-				<div class="championSplash">
-				</div>
-				<h2>Other champions you are good at</h2>
-				<div class="portraitsContainer" id="recChampsContainer">
-				</div>
+				<select id="roleSelect">
+					<option value="all">All Roles</option>
+					<option value="top">Top</option>
+					<option value="jungle">Jungle</option>
+					<option value="mid">Mid</option>
+					<option value="bot">Bot</option>
+					<option value="support">Support</option>
+				</select>
+				<select id="regionSelect">
+					<option value="NA">NA</option>
+					<option value="EUW">EUW</option>
+					<option value="EUNE">EUNE</option>
+					<option value="BR">BR</option>
+					<option value="TR">TR</option>
+					<option value="RU">RU</option>
+					<option value="LAN">LAN</option>
+					<option value="LAS">LAS</option>
+					<option value="OCE">OCE</option>
+					<option value="KR">KR</option>
+					<option value="JP1">JP</option>
+				</select>
 			</div>
-			<div class="hidden" id="ownedChamps">
-				<div>
-					<img class="icon-chest" src="rsc/Chest.jpg">
-					<img class="icon-chest" src="rsc/Chest.jpg">
-					<img class="icon-chest" src="rsc/Chest.jpg">
-					<img class="icon-chest" src="rsc/Chest.jpg">
-					<img class="icon-chest" src="rsc/Chest.jpg">
-					<h2>Champions that you have received chests for this season</h2>
-				</div>
-				<div class="portraitsContainer" id="ownedChampsContainer">
+			<div class="button pure-button pure-button-primary" id="submitButton" onclick="loadPlayer()">
+				What champion should I get a chest with?
+			</div>
+		</form>
+		<div class="error hidden" id="formError">ERROR!</div>
+	</div>
 
-				</div>
+
+	<div class="results section">
+
+		<div class="hidden" id="recChamps">
+			<h1>You should try</h1>
+			<div class="championSplash">
+			</div>
+			<h2>Other champions you are good at</h2>
+			<div class="portraitsContainer" id="recChampsContainer">
 			</div>
 		</div>
-		<div class="about section">
-			<h1>About</h1>
-			<p>League of Legends' new chest system allows players to unlock champions and skins just by playing the game.
-			<p>With Chest Finder, you will know just the champion to play to quickly get that free weekly chest!</p>
-			<p>Chest Finder recommends champions that you can get a chest in based on your mastery points and highest grade. You can also see what chests you have already claimed and who you claimed them with.</p>
-		</div>
-		<div class="disclaimer section">
-			<h1>Disclaimer</h1>
-			<p>Chest Finder isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</p>
+		<div class="hidden" id="ownedChamps">
+			<div>
+				<img class="icon-chest" src="rsc/Chest.jpg">
+				<img class="icon-chest" src="rsc/Chest.jpg">
+				<img class="icon-chest" src="rsc/Chest.jpg">
+				<img class="icon-chest" src="rsc/Chest.jpg">
+				<img class="icon-chest" src="rsc/Chest.jpg">
+				<h2>Champions that you have received chests for this season</h2>
+			</div>
+			<div class="portraitsContainer" id="ownedChampsContainer">
+
+			</div>
 		</div>
 	</div>
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- LolChestAd -->
-	<ins class="adsbygoogle"
-	     style="display:block"
-	     data-ad-client="ca-pub-5997536673931665"
-	     data-ad-slot="3598551631"
-	     data-ad-format="auto"></ins>
-	<script>
-	(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-	<script src="js/script.js"></script>
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	<div class="about section">
+		<h1>About</h1>
+		<p>League of Legends' new chest system allows players to unlock champions and skins just by playing the game.
+		<p>With Chest Finder, you will know just the champion to play to quickly get that free weekly chest!</p>
+		<p>Chest Finder recommends champions that you can get a chest in based on your mastery points and highest grade. You can also see what chests you have already claimed and who you claimed them with.</p>
+	</div>
+	<div class="disclaimer section">
+		<h1>Disclaimer</h1>
+		<p>Chest Finder isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</p>
+	</div>
+</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- LolChestAd -->
+<ins class="adsbygoogle"
+	 style="display:block"
+	 data-ad-client="ca-pub-5997536673931665"
+	 data-ad-slot="3598551631"
+	 data-ad-format="auto"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="js/script.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-	  ga('create', 'UA-77646520-1', 'auto');
-	  ga('send', 'pageview');
+    ga('create', 'UA-77646520-1', 'auto');
+    ga('send', 'pageview');
 
-	</script>
+</script>
 </body>
 </html>
