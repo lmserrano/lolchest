@@ -35,7 +35,7 @@ app.post('/info/:region/:username/:role*?', function (req, res) {
         req.params.role = 'all';
     }
     console.log('Info request for ' + req.params.username + ' in ' + req.params.region + ' for role ' + req.params.role);
-    getSummonerId(req.params, res);
+    getVersion(req.params, res);
 })
 
 
@@ -75,6 +75,23 @@ function makeRequest(url, success, error) {
 
 
 /****** Preform additional quries to assemble information ******/
+
+function getVersion(data, res) {
+    var region = regions[data.region]; //regions[data.params.region].toLowerCase();
+    var url = 'https://ddragon.leagueoflegends.com/api/versions.json';
+    //var url = 'https://global.api.pvp.net/api/lol/static-data/'+region+'/v1.2/versions?api_key='+api_key;
+
+    makeRequest(url,
+        (versions) => {
+            versions = JSON.parse(versions);
+            data.version = versions[0];
+            getSummonerId(data, res);
+        },
+        (error) => {
+            console.log("Error on getVersion for data: " + JSON.stringify(data));
+            res.json(error);
+        });
+}
 
 function getSummonerId(params, res) {
     var summoner_name = encodeURIComponent(params.username);
@@ -118,7 +135,10 @@ function getChampionMastery(data, res) {
 
 function addChampionInfo(data, res) {
     var region = regions[data.params.region].toLowerCase();
-    var url = 'https://global.api.pvp.net/api/lol/static-data/'+region+'/v1.2/champion?dataById=false&champData=image&api_key='+api_key;
+    var url = 'https://ddragon.leagueoflegends.com/cdn/'+data.params.version+'/data/en_US/champion.json';
+    //var url = 'https://ddragon.leagueoflegends.com/cdn/'+data.version+'/data/en_US/champion.json';
+    //var url = 'https://';
+    //var url = 'https://global.api.pvp.net/api/lol/static-data/'+region+'/v1.2/champion?dataById=false&champData=image&api_key='+api_key;
     makeRequest(url,
         (champlist) => {
         champlist = JSON.parse(champlist).data;
@@ -128,26 +148,10 @@ function addChampionInfo(data, res) {
     }
     data.champions = champArray;
     data.champions.sort(compareChampion);
-    getVersion(data, res);
-},
-    (error) => {
-        console.log("Error on addChampionInfo for data: " + JSON.stringify(data));
-        res.json(error);
-    });
-}
-
-function getVersion(data, res) {
-    var region = regions[data.params.region].toLowerCase();
-    var url = 'https://global.api.pvp.net/api/lol/static-data/'+region+'/v1.2/versions?api_key='+api_key;
-
-    makeRequest(url,
-        (versions) => {
-        versions = JSON.parse(versions);
-    data.version = versions[0];
     filterChamptions(data, res);
 },
     (error) => {
-        console.log("Error on getVersion for data: " + JSON.stringify(data));
+        console.log("Error on addChampionInfo for data: " + JSON.stringify(data));
         res.json(error);
     });
 }
